@@ -297,6 +297,11 @@
             font-weight: 600;
         }
 
+        /* Active section indicator */
+        .section-indicator {
+            display: none;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .navbar-brand {
@@ -364,7 +369,7 @@
                     <a class="nav-link active" href="portfolio.html">About Me</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
+                    <a class="nav-link contact-link" href="#contact">Contact</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="register.html">Register</a>
@@ -473,5 +478,66 @@
             <p>BS Information Technology Student</p>
         </div>
     </footer>
+
+    <script>
+        // JavaScript to handle Contact link active state
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactLink = document.querySelector('.contact-link');
+            const aboutLink = document.querySelector('.nav-link[href="portfolio.html"]');
+            
+            // Remove active class from About link if we're on contact section
+            contactLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from About link
+                aboutLink.classList.remove('active');
+                aboutLink.classList.remove('active');
+                
+                // Add active class to Contact link
+                contactLink.classList.add('active');
+                
+                // Scroll to contact section
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                    window.scrollTo({
+                        top: contactSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+            
+            // Handle back button and page load to check current section
+            function checkCurrentSection() {
+                const hash = window.location.hash;
+                if (hash === '#contact') {
+                    aboutLink.classList.remove('active');
+                    contactLink.classList.add('active');
+                    
+                    // Scroll to contact section after a short delay
+                    setTimeout(() => {
+                        const contactSection = document.getElementById('contact');
+                        if (contactSection) {
+                            window.scrollTo({
+                                top: contactSection.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }, 100);
+                }
+            }
+            
+            // Check on page load
+            checkCurrentSection();
+            
+            // Check when URL hash changes
+            window.addEventListener('hashchange', checkCurrentSection);
+            
+            // Add click handler for About link to reset Contact active state
+            aboutLink.addEventListener('click', function() {
+                contactLink.classList.remove('active');
+                aboutLink.classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
