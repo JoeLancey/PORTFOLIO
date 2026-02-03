@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joe Lance M. Odtohan - Home</title>
+    <title>Joe Lance M. Odtohan - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
@@ -14,17 +14,20 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            overflow-x: hidden;
         }
 
         /* Navigation */
         .navbar {
-            border-bottom: 2px solid #000;
-            padding: 15px 0;
-            background-color: white;
+            border-bottom: 3px solid #000;
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.98);
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         .nav-container {
@@ -33,15 +36,21 @@
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
 
         .navbar-brand {
             font-family: 'Great Vibes', cursive;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 400;
             color: #000;
             text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            color: #dc0000;
+            transform: scale(1.05);
         }
 
         .nav {
@@ -52,26 +61,27 @@
         }
 
         .nav-item {
-            margin-left: 30px;
+            margin-left: 35px;
         }
 
         .nav-link {
-            color: black;
+            color: #333;
             position: relative;
             transition: all 0.3s ease;
-            font-weight: 500;
+            font-weight: 600;
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
         }
 
         .nav-link::before {
             content: '';
             position: absolute;
             width: 0;
-            height: 2px;
-            bottom: 0;
+            height: 3px;
+            bottom: -5px;
             left: 50%;
-            background-color: #dc0000;
+            background: linear-gradient(90deg, #dc0000, #ff3333);
             transition: all 0.3s ease;
             transform: translateX(-50%);
         }
@@ -93,67 +103,110 @@
             width: 100%;
         }
 
-        /* Home Page Content */
+        /* Hero Section */
         .hero-section {
             min-height: 90vh;
             display: flex;
             align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(220, 0, 0, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.05) 0%, transparent 50%);
+            pointer-events: none;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
+            position: relative;
+            z-index: 1;
         }
 
-        .hero-content {
-            padding: 40px 20px;
-            text-align: center;
+        .hero-content-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
         }
 
         .hero-greeting {
             font-family: 'Great Vibes', cursive;
-            font-size: 5rem;
+            font-size: 6rem;
             font-weight: 400;
             color: #333;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+            animation: fadeInDown 1s ease;
         }
 
         .hero-intro {
-            font-size: 2.5rem;
-            font-weight: 600;
+            font-size: 3rem;
+            font-weight: 700;
             color: #555;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            animation: fadeInLeft 1s ease 0.2s both;
         }
 
         .hero-name {
-            color: #000;
-            font-weight: 700;
+            color: #dc0000;
             position: relative;
             display: inline-block;
+            background: linear-gradient(135deg, #dc0000, #ff3333);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-name::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: -8px;
             left: 0;
             width: 100%;
-            height: 3px;
-            background-color: #dc0000;
+            height: 4px;
+            background: linear-gradient(90deg, #dc0000, #ff3333);
+            border-radius: 2px;
         }
 
         .hero-roles {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 500;
             color: #666;
-            margin-top: 30px;
-            letter-spacing: 3px;
+            margin-top: 35px;
+            letter-spacing: 2px;
+            animation: fadeInLeft 1s ease 0.4s both;
         }
 
         .role-item {
             display: inline-block;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 10px;
+        }
+
+        .role-item::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #dc0000;
             transition: all 0.3s ease;
         }
 
@@ -162,29 +215,272 @@
             transform: scale(1.1);
         }
 
+        .role-item:hover::before {
+            width: 100%;
+        }
+
+        .hero-cta {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .cta-button {
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, #dc0000, #ff3333);
+            color: white;
+            box-shadow: 0 4px 15px rgba(220, 0, 0, 0.3);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(220, 0, 0, 0.4);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: #dc0000;
+            border: 2px solid #dc0000;
+        }
+
+        .cta-secondary:hover {
+            background: #dc0000;
+            color: white;
+            transform: translateY(-3px);
+        }
+
         /* Image Container */
-        .image-container {
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            animation: fadeInRight 1s ease 0.3s both;
         }
 
-        .F1 {
+        .image-wrapper {
+            position: relative;
             width: 100%;
             max-width: 500px;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 10px;
-            transition: all 0.4s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transform: rotate(-5deg);
         }
 
-        .F1:hover {
-            transform: rotate(0deg) scale(1.08);
-            box-shadow: 0 8px 25px rgba(220, 0, 0, 0.4);
-            filter: brightness(1.1);
+        .image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            background: linear-gradient(135deg, #dc0000, #ff3333);
+            border-radius: 20px;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s ease;
+            transform: rotate(-2deg);
+        }
+
+        .hero-img:hover {
+            transform: rotate(0deg) scale(1.03);
+            box-shadow: 0 15px 50px rgba(220, 0, 0, 0.3);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 60px 0;
+            background: white;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-icon {
+            font-size: 3rem;
+            color: #dc0000;
+            margin-bottom: 15px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #dc0000;
+        }
+
+        .footer-section p {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: #dc0000;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: #dc0000;
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: #999;
+        }
+
+        .footer-bottom p {
+            margin: 5px 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Responsive Design */
@@ -193,16 +489,20 @@
                 font-size: 2rem;
             }
             
+            .nav-container {
+                padding: 0 20px;
+            }
+            
             .nav-item {
-                margin-left: 15px;
+                margin-left: 20px;
             }
             
             .nav-link {
-                font-size: 0.9rem;
+                font-size: 0.95rem;
             }
             
             .hero-greeting {
-                font-size: 3rem;
+                font-size: 4rem;
             }
             
             .hero-intro {
@@ -210,23 +510,39 @@
             }
             
             .hero-roles {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .cta-button {
+                text-align: center;
             }
             
-            .F1 {
-                max-width: 100%;
-                height: 250px;
+            .hero-img {
+                height: 300px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
             }
         }
 
         @media (max-width: 480px) {
             .nav-container {
                 flex-direction: column;
-                padding: 10px;
+                padding: 15px;
             }
             
             .nav {
-                margin-top: 10px;
+                margin-top: 15px;
                 flex-wrap: wrap;
                 justify-content: center;
             }
@@ -236,7 +552,7 @@
             }
             
             .hero-greeting {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
             
             .hero-intro {
@@ -244,11 +560,23 @@
             }
             
             .hero-roles {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
             
             .navbar-brand {
                 font-size: 1.8rem;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero-img {
+                height: 250px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
             }
         }
     </style>
@@ -267,7 +595,7 @@
                     <a class="nav-link" href="portfolio.html">About Me</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="portfolio.html">Contact</a>
+                    <a class="nav-link" href="portfolio.html#contact">Contact</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="register.html">Register</a>
@@ -276,27 +604,106 @@
         </div>
     </nav>
 
-    <!-- Home Section -->
+    <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
-            <div style="display: flex; align-items: center; flex-wrap: wrap;">
-                <div style="flex: 1; min-width: 300px; padding: 20px;">
-                    <div class="hero-content">
-                        <h1 class="hero-greeting">HELLO</h1>
-                        <h2 class="hero-intro">I'M <span class="hero-name">LANCE</span></h2>
-                        <p class="hero-roles">
-                            <span class="role-item">STUDENT</span> | 
-                            <span class="role-item">WEB DESIGNER</span>
-                        </p>
+            <div class="hero-content-wrapper">
+                <div class="hero-text">
+                    <h1 class="hero-greeting">Hello</h1>
+                    <h2 class="hero-intro">I'm <span class="hero-name">LANCE</span></h2>
+                    <p class="hero-roles">
+                        <span class="role-item">STUDENT</span> | 
+                        <span class="role-item">WEB DESIGNER</span>
+                    </p>
+                    <div class="hero-cta">
+                        <a href="portfolio.html" class="cta-button cta-primary">
+                            <i class="fas fa-user"></i> About Me
+                        </a>
+                        <a href="portfolio.html#contact" class="cta-button cta-secondary">
+                            <i class="fas fa-envelope"></i> Get In Touch
+                        </a>
                     </div>
                 </div>
-                <div style="flex: 1; min-width: 300px; padding: 20px;">
-                    <div class="image-container">
-                        <img class="F1" src="https://images.unsplash.com/photo-1514316454349-750a7fd3da3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" alt="Web Development">
+                <div class="hero-image">
+                    <div class="image-wrapper">
+                        <img class="hero-img" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" alt="Web Development">
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <i class="fas fa-code stat-icon"></i>
+                <div class="stat-number">2+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-project-diagram stat-icon"></i>
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-laptop-code stat-icon"></i>
+                <div class="stat-number">5+</div>
+                <div class="stat-label">Technologies</div>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-graduation-cap stat-icon"></i>
+                <div class="stat-number">2nd</div>
+                <div class="stat-label">Year IT Student</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Joe Lance M. Odtohan</h3>
+                <p>BS Information Technology student passionate about web development and design. Creating clean, responsive, and user-friendly interfaces.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/joe.lance.odtohan" class="social-link" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://github.com/JoeLancey" class="social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" class="social-link" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="mailto:joelanceodtohan@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+                    <li><a href="portfolio.html"><i class="fas fa-angle-right"></i> About Me</a></li>
+                    <li><a href="portfolio.html#skills"><i class="fas fa-angle-right"></i> Skills</a></li>
+                    <li><a href="portfolio.html#contact"><i class="fas fa-angle-right"></i> Contact</a></li>
+                    <li><a href="register.html"><i class="fas fa-angle-right"></i> Register</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul class="footer-links">
+                    <li><a href="mailto:joelanceodtohan@gmail.com"><i class="fas fa-envelope"></i> joelanceodtohan@gmail.com</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Davao City, Philippines</a></li>
+                    <li><a href="#"><i class="fas fa-school"></i> University Of Mindanao</a></li>
+                    <li><a href="#"><i class="fas fa-graduation-cap"></i> BS IT - 2nd Year</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Joe Lance M. Odtohan. All Rights Reserved.</p>
+            <p>Designed with <i class="fas fa-heart" style="color: #dc0000;"></i> by Lance</p>
+        </div>
+    </footer>
 </body>
 </html>

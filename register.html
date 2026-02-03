@@ -14,18 +14,19 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             min-height: 100vh;
         }
 
         /* Navigation */
         .navbar {
-            border-bottom: 2px solid #000;
-            padding: 15px 0;
-            background-color: white;
+            border-bottom: 3px solid #000;
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.98);
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .nav-container {
@@ -34,15 +35,21 @@
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
 
         .navbar-brand {
             font-family: 'Great Vibes', cursive;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 400;
             color: #000;
             text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            color: #dc0000;
+            transform: scale(1.05);
         }
 
         .nav {
@@ -53,26 +60,27 @@
         }
 
         .nav-item {
-            margin-left: 30px;
+            margin-left: 35px;
         }
 
         .nav-link {
-            color: black;
+            color: #333;
             position: relative;
             transition: all 0.3s ease;
-            font-weight: 500;
+            font-weight: 600;
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
         }
 
         .nav-link::before {
             content: '';
             position: absolute;
             width: 0;
-            height: 2px;
-            bottom: 0;
+            height: 3px;
+            bottom: -5px;
             left: 50%;
-            background-color: #dc0000;
+            background: linear-gradient(90deg, #dc0000, #ff3333);
             transition: all 0.3s ease;
             transform: translateX(-50%);
         }
@@ -96,8 +104,8 @@
 
         /* Registration Form */
         .register-section {
-            padding: 50px 20px;
-            background-color: #f8f9fa;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
 
         .container {
@@ -108,50 +116,72 @@
 
         .register-form {
             background: white;
-            max-width: 500px;
+            max-width: 600px;
             margin: 30px auto;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
             border: 2px solid transparent;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .register-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #dc0000, #ff3333);
         }
 
         .register-form:hover {
-            border-color: #dc0000;
-            box-shadow: 0 8px 25px rgba(220, 0, 0, 0.2);
+            box-shadow: 0 15px 50px rgba(220, 0, 0, 0.15);
         }
 
         .register-form h2 {
             text-align: center;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             color: #333;
+            font-size: 2.2rem;
+            font-weight: 700;
         }
 
         .register-form .subtitle {
             text-align: center;
             color: #666;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
         }
 
         .register-form fieldset {
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            padding: 20px;
-            margin-bottom: 20px;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .register-form fieldset:hover {
+            border-color: rgba(220, 0, 0, 0.3);
+            background: rgba(220, 0, 0, 0.02);
         }
 
         .register-form legend {
-            font-weight: bold;
-            padding: 0 10px;
+            font-weight: 700;
+            padding: 0 15px;
             color: #333;
+            font-size: 1.2rem;
         }
 
         .register-form label {
             display: block;
-            margin-top: 15px;
+            margin-top: 20px;
             color: #333;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.95rem;
         }
 
         .register-form .required {
@@ -162,12 +192,13 @@
         .register-form select,
         .register-form textarea {
             width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
+            padding: 12px 15px;
+            margin-top: 8px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
             transition: all 0.3s ease;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         .register-form input:focus,
@@ -175,12 +206,13 @@
         .register-form textarea:focus {
             outline: none;
             border-color: #dc0000;
-            box-shadow: 0 0 0 2px rgba(220, 0, 0, 0.2);
+            box-shadow: 0 0 0 3px rgba(220, 0, 0, 0.1);
+            transform: translateY(-2px);
         }
 
         .register-form .name-row {
             display: flex;
-            gap: 15px;
+            gap: 20px;
         }
 
         .register-form .name-row div {
@@ -188,112 +220,289 @@
         }
 
         .register-form .small-text {
-            font-size: 12px;
-            color: #666;
-            margin: 5px 0 15px;
+            font-size: 13px;
+            color: #888;
+            margin: 8px 0 15px;
+            font-style: italic;
         }
 
         .register-form .radio-group {
             display: flex;
-            gap: 20px;
-            margin-top: 8px;
+            gap: 25px;
+            margin-top: 12px;
         }
 
         .register-form .radio-group label {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
             margin-top: 0;
             font-weight: normal;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .register-form .radio-group label:hover {
+            background: rgba(220, 0, 0, 0.05);
+        }
+
+        .register-form .radio-group input[type="radio"] {
+            width: auto;
+            cursor: pointer;
         }
 
         .register-form .checkbox {
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin-top: 15px;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(220, 0, 0, 0.05);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .register-form .checkbox:hover {
+            background: rgba(220, 0, 0, 0.1);
         }
 
         .register-form .checkbox input {
             width: auto;
+            cursor: pointer;
         }
 
         .register-form .button-group {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 20px;
+            margin-top: 30px;
+            gap: 15px;
         }
 
         .register-form button {
-            background: none;
+            background: white;
             border: 2px solid #dc0000;
             color: #dc0000;
-            padding: 8px 16px;
-            border-radius: 4px;
+            padding: 12px 24px;
+            border-radius: 8px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.3s ease;
+            font-size: 1rem;
         }
 
         .register-form button:hover {
             background: #dc0000;
             color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220, 0, 0, 0.3);
         }
 
         .register-form input[type="reset"] {
-            background: #e8eaed;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
+            background: #f0f0f0;
+            border: 2px solid #d0d0d0;
+            padding: 12px 24px;
+            border-radius: 8px;
             color: #333;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.3s ease;
             width: auto;
+            font-size: 1rem;
         }
 
         .register-form input[type="submit"] {
-            background: #dc0000;
+            background: linear-gradient(135deg, #dc0000, #ff3333);
             border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
+            padding: 12px 30px;
+            border-radius: 8px;
             color: white;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.3s ease;
             width: auto;
+            box-shadow: 0 4px 15px rgba(220, 0, 0, 0.3);
+            font-size: 1rem;
         }
 
         .register-form input[type="reset"]:hover {
-            background: #ddd;
+            background: #e0e0e0;
+            border-color: #c0c0c0;
+            transform: translateY(-2px);
         }
 
         .register-form input[type="submit"]:hover {
-            background: #ff0000;
+            background: linear-gradient(135deg, #ff0000, #ff4444);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(220, 0, 0, 0.4);
         }
 
-        .register-form .button-group div {
+        .register-form .button-group > div {
             display: flex;
-            gap: 10px;
+            gap: 12px;
+        }
+
+        /* Success Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideDown 0.4s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-content i {
+            font-size: 70px;
+            color: #dc0000;
+            margin-bottom: 20px;
+        }
+
+        .modal-content h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
+
+        .modal-content p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .modal-btn {
+            background: linear-gradient(135deg, #dc0000, #ff3333);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .modal-btn:hover {
+            background: linear-gradient(135deg, #ff0000, #ff4444);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(220, 0, 0, 0.4);
         }
 
         /* Footer */
         .footer {
-            background-color: #333;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             color: white;
-            padding: 30px 0;
-            text-align: center;
-            margin-top: 50px;
+            padding: 60px 0 30px;
+            margin-top: 60px;
         }
 
-        .footer p {
-            margin: 5px 0;
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #dc0000;
+        }
+
+        .footer-section p {
             color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 15px;
         }
 
-        .footer p:first-child {
-            font-weight: 600;
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: #dc0000;
+            padding-left: 5px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-social-link:hover {
+            background: #dc0000;
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: #999;
+        }
+
+        .footer-bottom p {
+            margin: 5px 0;
         }
 
         /* Responsive Design */
@@ -302,32 +511,50 @@
                 font-size: 2rem;
             }
             
+            .nav-container {
+                padding: 0 20px;
+            }
+            
             .nav-item {
-                margin-left: 15px;
+                margin-left: 20px;
             }
             
             .nav-link {
-                font-size: 0.9rem;
+                font-size: 0.95rem;
             }
             
             .register-form {
-                padding: 30px;
+                padding: 35px 25px;
             }
             
             .register-form .name-row {
                 flex-direction: column;
                 gap: 0;
             }
+
+            .register-form h2 {
+                font-size: 1.8rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 0 20px;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
         }
 
         @media (max-width: 480px) {
             .nav-container {
                 flex-direction: column;
-                padding: 10px;
+                padding: 15px;
             }
             
             .nav {
-                margin-top: 10px;
+                margin-top: 15px;
                 flex-wrap: wrap;
                 justify-content: center;
             }
@@ -341,7 +568,26 @@
             }
             
             .register-form {
+                padding: 25px 20px;
+            }
+
+            .register-form fieldset {
                 padding: 20px;
+            }
+
+            .register-form .button-group {
+                flex-direction: column;
+            }
+
+            .register-form .button-group > div {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .register-form button,
+            .register-form input[type="reset"],
+            .register-form input[type="submit"] {
+                width: 100%;
             }
         }
     </style>
@@ -372,9 +618,9 @@
     <!-- Registration Form -->
     <section class="register-section">
         <div class="container">
-            <form class="register-form" action="#" method="post" autocomplete="on">
-                <h2>Create your Account</h2>
-                <p class="subtitle">Join my portfolio community</p>
+            <form class="register-form" id="registrationForm" autocomplete="on">
+                <h2>Create Your Account</h2>
+                <p class="subtitle">Join the portfolio community today</p>
 
                 <fieldset>
                     <legend>Personal Information</legend>
@@ -382,20 +628,20 @@
                     <div class="name-row">
                         <div>
                             <label for="firstname">First name <span class="required">*</span></label>
-                            <input type="text" id="firstname" name="firstname" placeholder="First name" required maxlength="30">
+                            <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" required maxlength="30">
                         </div>
                         <div>
                             <label for="lastname">Last name</label>
-                            <input type="text" id="lastname" name="lastname" placeholder="Last name">
+                            <input type="text" id="lastname" name="lastname" placeholder="Enter your last name" maxlength="30">
                         </div>
                     </div>
 
                     <label for="email">Email <span class="required">*</span></label>
                     <input type="email" id="email" name="email" placeholder="yourname@example.com" required>
-                    <p class="small-text">You can use letters, numbers & periods</p>
+                    <p class="small-text">We'll never share your email with anyone else</p>
 
                     <label for="password">Password <span class="required">*</span></label>
-                    <input type="password" id="password" name="password" placeholder="Create a strong password" required>
+                    <input type="password" id="password" name="password" placeholder="Create a strong password" required minlength="8">
                     <p class="small-text">Use 8 or more characters with a mix of letters, numbers & symbols</p>
 
                     <label for="birthdate">Birthday</label>
@@ -415,7 +661,7 @@
                     </div>
 
                     <label for="phone">Phone number</label>
-                    <input type="number" id="phone" name="phone" placeholder="Mobile number" min="0" max="9999999999">
+                    <input type="tel" id="phone" name="phone" placeholder="09XX-XXX-XXXX" pattern="[0-9]{10,11}">
 
                     <label for="country">Country/Region</label>
                     <select id="country" name="country">
@@ -424,44 +670,125 @@
                         <option value="us">United States</option>
                         <option value="uk">United Kingdom</option>
                         <option value="ca">Canada</option>
+                        <option value="jp">Japan</option>
+                        <option value="kr">South Korea</option>
                     </select>
 
-                    <label for="feedback">Feedback</label>
+                    <label for="feedback">Feedback (Optional)</label>
                     <textarea
                         id="feedback"
                         name="feedback"
-                        placeholder="Enter your comments here"
+                        placeholder="Share your thoughts or expectations..."
                         rows="4"
                         maxlength="200">
                     </textarea>
 
                     <label class="checkbox">
                         <input type="checkbox" name="terms" required>
-                        I agree to the terms and conditions
+                        I agree to the Terms of Service and Privacy Policy <span class="required">*</span>
                     </label>
                 </fieldset>
 
                 <div class="button-group">
-                    <button type="button">Help</button>
+                    <button type="button" onclick="window.location.href='portfolio.html#contact'">
+                        <i class="fas fa-question-circle"></i> Need Help?
+                    </button>
                     <div>
-                        <input type="reset" value="Clear">
-                        <input type="submit" value="Register">
+                        <input type="reset" value="Clear Form">
+                        <input type="submit" value="Register Now">
                     </div>
                 </div>
 
-                <p class="small-text" style="margin-top: 20px; text-align: center;">
+                <p class="small-text" style="margin-top: 25px; text-align: center;">
                     By clicking Register, you agree to our Terms of Service and Privacy Policy
                 </p>
             </form>
         </div>
     </section>
 
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <i class="fas fa-check-circle"></i>
+            <h2>Registration Successful!</h2>
+            <p>Welcome to the community! You will be redirected to the home page shortly.</p>
+            <button class="modal-btn" onclick="redirectToHome()">Go to Home</button>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Joe Lance M. Odtohan</h3>
+                <p>BS Information Technology student passionate about web development and design. Creating clean, responsive, and user-friendly interfaces.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/joe.lance.odtohan" class="footer-social-link" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://github.com/JoeLancey" class="footer-social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" class="footer-social-link" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="mailto:joelanceodtohan@gmail.com" class="footer-social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+                    <li><a href="portfolio.html"><i class="fas fa-angle-right"></i> About Me</a></li>
+                    <li><a href="portfolio.html#skills"><i class="fas fa-angle-right"></i> Skills</a></li>
+                    <li><a href="portfolio.html#contact"><i class="fas fa-angle-right"></i> Contact</a></li>
+                    <li><a href="register.html"><i class="fas fa-angle-right"></i> Register</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul class="footer-links">
+                    <li><a href="mailto:joelanceodtohan@gmail.com"><i class="fas fa-envelope"></i> joelanceodtohan@gmail.com</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Davao City, Philippines</a></li>
+                    <li><a href="#"><i class="fas fa-school"></i> University Of Mindanao</a></li>
+                    <li><a href="#"><i class="fas fa-graduation-cap"></i> BS IT - 2nd Year</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
             <p>&copy; 2026 Joe Lance M. Odtohan. All Rights Reserved.</p>
-            <p>BS Information Technology Student</p>
+            <p>Designed with <i class="fas fa-heart" style="color: #dc0000;"></i> by Lance</p>
         </div>
     </footer>
+
+    <script>
+        // Form submission handling
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success modal
+            document.getElementById('successModal').style.display = 'block';
+            
+            // Auto redirect after 3 seconds
+            setTimeout(function() {
+                window.location.href = 'index.html';
+            }, 3000);
+        });
+
+        // Manual redirect function
+        function redirectToHome() {
+            window.location.href = 'index.html';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('successModal');
+            if (event.target == modal) {
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
 </body>
 </html>
